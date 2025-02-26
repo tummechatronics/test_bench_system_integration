@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=TPU Tester
+Comment=TPU Tester Application
+Exec=/usr/bin/tpu_tester.py
+Icon=Topo
+Terminal=false
+Type=Application
+Categories=Utility;

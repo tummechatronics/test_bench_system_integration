@@ -1,0 +1,33 @@
+definitions:
+  steps:
+    - step: &git-checkout
+              git config --global --add safe.directory '*' &&
+              git submodule update --recursive --init --jobs 8 --depth 1
+    - step: &set-env
+              git config --global --add safe.directory '*' &&
+              export GIT_COMMIT_SHA="0x${BITBUCKET_COMMIT}" &&
+              export GIT_COMMIT_SHORT="0x$(git log --pretty=format:'%h' -n 1)" &&
+              export GIT_COMMIT_SHORT_INT="$(git log --pretty=format:'%h' -n 1)" &&
+              export GIT_BRANCH_NAME="${BITBUCKET_BRANCH}"
+
+pipelines:
+  default:
+    - step: &checkout
+        name: Checkout
+        image:
+          name: docker.topo/bob-jammy-amd64:231211
+          username: $DOCKER_USER
+          password: $DOCKER_PASSWORD
+        runs-on:
+          - self.hosted
+          - linux
+        size: 8x
+        script:
+          - *git-checkout
+          - mkdir deb
+          - cd deb
+          - cmake ..
+          - cpack -G DEB
+          - ls -la
+        artifacts:
+          - "deb/*.deb"

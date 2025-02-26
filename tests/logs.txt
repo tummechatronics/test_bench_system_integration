@@ -1,0 +1,27 @@
+Toposens Collision avoidance system
+Init script version: 1.0.3
+Boot timestamp: 2024-06-13 07:30:06
+Boot from internal storage: True
+
+Name: IOT-GATE-iMX8
+Board Options: D4-NA32-TIC-FACAN-FCDIO
+Board Revision: 1.00
+Board Serial Number: 122072100605
+Product Name: UCM-iMX8M
+Product Options: C1800QM-D4-N32-E
+Product Revision: 1.20
+Product Serial Number: 5a1966656
+Serial Number: 1220721-00605
+CAN Module: MCP2518FD
+
+Software components
+toposens-core-libs Version: 1.0.4 Git Hash: 0x37f11ea
+tpu-app Version: 1.0.0 Git Hash: 0x37f11ea
+tsl Version: 2.0.18 Git Hash: 0x37f11ea
+tpu-system Version: 1.0.2 Git Hash: 0x37f11ea
+toposens-gpio Version: 1.0.1 Git Hash: 0x37f11ea
+
+Checking for updates to be installed
+Bringing up network
+
+System startup done
